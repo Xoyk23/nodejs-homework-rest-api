@@ -15,6 +15,8 @@ const {
   validateUpdateSubscription,
 } = require('../users/validation-user');
 
+router.get('/verify/:token', ctrls.verify);
+router.post('/verify', ctrls.repeatSendEmailVerify);
 router.patch('/', validateUpdateSubscription, guard, ctrls.updateSubscription);
 router.post('/signup', validateSignupUser, registerLimiter, ctrls.signup);
 router.post('/login', validateLoginUser, ctrls.login);
