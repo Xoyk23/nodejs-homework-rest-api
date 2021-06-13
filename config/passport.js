@@ -21,6 +21,10 @@ passport.use(
       if (!user.token) {
         return done(null, false);
       }
+      if (!user.verify) {
+        return done(null, false);
+      }
+
       return done(null, user);
     } catch (err) {
       return done(err, false);
